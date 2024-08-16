@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,7 +21,6 @@ const Navbar = () => {
       ? jwtDecode(localStorage.getItem("token"))
       : ""
   );
-  useEffect(() => console.log(isDark), [isDark]);
   const logoutFunc = () => {
     dispatch(setUserInfo({}));
     localStorage.removeItem("token");

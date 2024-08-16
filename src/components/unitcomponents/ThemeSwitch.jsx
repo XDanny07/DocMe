@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 function ThemeSwitch() {
   const dispatch = useDispatch();
   const handleToggle = () => {
-    console.log("Called");
     dispatch(setDarkTheme());
   };
   return (
