@@ -1,24 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setUserInfo } from "../redux/reducers/rootSlice";
 import { FiMenu } from "react-icons/fi";
 import { RxCross1 } from "react-icons/rx";
 import { jwtDecode } from "jwt-decode";
+import ThemeSwitch from "./unitcomponents/ThemeSwitch";
 import "../styles/navbar.css";
+import "../styles/common.css";
 
 const Navbar = () => {
   const [iconActive, setIconActive] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const isDark = useSelector((state) => state.root.isDark);
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [user, setUser] = useState(
     localStorage.getItem("token")
       ? jwtDecode(localStorage.getItem("token"))
       : ""
   );
-
+  useEffect(() => console.log(isDark), [isDark]);
   const logoutFunc = () => {
     dispatch(setUserInfo({}));
     localStorage.removeItem("token");
@@ -26,22 +29,31 @@ const Navbar = () => {
   };
 
   return (
-    <header>
+    <header className={isDark ? "dark" : "light"}>
       <nav className={iconActive ? "nav-active" : ""}>
         <h2 className="nav-logo">
-          <NavLink to={"/"} class="button" data-text="Awesome">
-            <span class="actual-text">&nbsp;DocMe&nbsp;</span>
-            <span aria-hidden="true" class="logo-text">
-              &nbsp;DocMe&nbsp;
-            </span>
+          <NavLink to={"/"} className="nav-logo-a">
+            <button className="button" data-text="Awesome">
+              <span className="actual-text">&nbsp;DocMe&nbsp;</span>
+              <span aria-hidden="true" className="hover-text">
+                &nbsp;DocMe&nbsp;
+              </span>
+            </button>
           </NavLink>
         </h2>
         <ul className="nav-links">
           <li>
-            <NavLink to={"/"}>Home</NavLink>
+            <NavLink className={"text-[1.2em]"} to={"/"}>
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to={"/doctors"}>Doctors</NavLink>
+            <NavLink className={"text-[1.2em]"} to={"/doctors"}>
+              Doctors
+            </NavLink>
+          </li>
+          <li>
+            <ThemeSwitch />
           </li>
           {token && user.isAdmin && (
             <li>
@@ -70,14 +82,14 @@ const Navbar = () => {
           {!token ? (
             <>
               <li>
-                <NavLink className="btn" to={"/login"}>
-                  Login
-                </NavLink>
+                <button className="authbtn">
+                  <NavLink to={"/login"}>Login</NavLink>
+                </button>
               </li>
               <li>
-                <NavLink className="btn" to={"/register"}>
-                  Register
-                </NavLink>
+                <button className="authbtn">
+                  <NavLink to={"/register"}>Register</NavLink>
+                </button>
               </li>
             </>
           ) : (

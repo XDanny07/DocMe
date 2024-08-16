@@ -5,6 +5,7 @@ export const rootReducer = createSlice({
   initialState: {
     loading: true,
     userInfo: {},
+    isDark: false,
   },
   reducers: {
     setLoading: (state, action) => {
@@ -13,8 +14,11 @@ export const rootReducer = createSlice({
     setUserInfo: (state, action) => {
       state.userInfo = action.payload;
     },
+    setDarkTheme: (state) => {
+      state.isDark = !state.isDark;
+    },
   },
 });
 
-export const { setLoading, setUserInfo } = rootReducer.actions;
+export const { setLoading, setUserInfo, setDarkTheme } = rootReducer.actions;
 export default rootReducer.reducer;

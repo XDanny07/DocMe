@@ -2,8 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .light {
+    color: #021526;
+    background-color: white;
+  }
+  .dark {
+    color: white;
+    background-color: #021526;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }

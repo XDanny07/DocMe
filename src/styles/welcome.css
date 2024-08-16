@@ -1,0 +1,60 @@
+/* @import url(app.css); */
+
+.welcome {
+  display: flex;
+  height: 90vh;
+  width: 100%;
+  padding: 10%;
+  margin: 0 auto;
+  align-items: center;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.welcome-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.welcome-content h1 {
+  font-size: 2.5rem;
+}
+
+.welcome-img {
+  flex: 1;
+}
+
+.welcome-img img {
+  width: 100%;
+  border-radius: 3%;
+}
+
+.about {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 770px) {
+  .welcome {
+    height: auto;
+  }
+  .welcome,
+  .about {
+    flex-direction: column;
+  }
+  .welcome-content {
+    margin-top: 2rem;
+    align-items: center;
+  }
+  .welcome-content h1 {
+    text-align: center;
+  }
+  .about-heading {
+    margin-top: 4rem;
+  }
+}
