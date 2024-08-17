@@ -21,11 +21,14 @@ const Navbar = () => {
       ? jwtDecode(localStorage.getItem("token"))
       : ""
   );
+
   const logoutFunc = () => {
     dispatch(setUserInfo({}));
     localStorage.removeItem("token");
     navigate("/login");
   };
+  const navlinkclass =
+    "relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center";
 
   return (
     <header className={isDark ? "dark" : "light"}>
@@ -42,12 +45,12 @@ const Navbar = () => {
         </h2>
         <ul className="nav-links">
           <li>
-            <NavLink className={"text-[1.2em]"} to={"/"}>
+            <NavLink className={navlinkclass} to={"/"}>
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink className={"text-[1.2em]"} to={"/doctors"}>
+            <NavLink className={navlinkclass} to={"/doctors"}>
               Doctors
             </NavLink>
           </li>

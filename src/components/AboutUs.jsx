@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import "../styles/aboutus.css";
+import Statistics from "./unitcomponents/Statistics";
+
 const AboutUs = () => {
   const isDark = useSelector((state) => state.root.isDark);
   return (
@@ -10,12 +12,7 @@ const AboutUs = () => {
       >
         <h2 className="page-heading about-heading">About Us</h2>
         <div className="about">
-          <div className="about-img">
-            <img
-              src="https://plus.unsplash.com/premium_photo-1661766718556-13c2efac1388?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8ZG9jdG9yfGVufDB8fDB8fHww"
-              alt="about"
-            />
-          </div>
+          <Statistics />
           <div className="about-content">
             <p>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.

@@ -3,8 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+  .darkbg {
+    background-color: #021526;
+  }
   .light {
-    color: #021526;
     background-color: white;
   }
   .dark {
