@@ -2,9 +2,9 @@ import styled from "styled-components";
 function Flipcard() {
   return (
     <Fcard>
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
+      <div className="card">
+        <div className="card-inner">
+          <div className="card-front">
             <h1>
               Your Health, <br />
               Our Responsibility
@@ -15,7 +15,7 @@ function Flipcard() {
               in aperiam dolor, quaerat praesentium.
             </p>
           </div>
-          <div class="card-back">
+          <div className="card-back">
             <h1>
               Our Well-Being, <br />
               Your Responsibility

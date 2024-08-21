@@ -1,0 +1,17 @@
+.doctors-heading {
+  padding: 2rem 0;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  text-align: center;
+}
+.doctors-container {
+  width: 80%;
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-items: center;
+  column-gap: 6rem;
+  row-gap: 3rem;
+}

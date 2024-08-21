@@ -28,7 +28,7 @@ const login = async (req, res) => {
   try {
     const emailPresent = await User.findOne({ email: req.body.email });
     if (!emailPresent) {
-      return res.status(400).send("Incorrect credentials");
+      return res.status(400).send("No Account Associated With This Email");
     }
     const verifyPass = await bcrypt.compare(
       req.body.password,
@@ -63,6 +63,7 @@ const register = async (req, res) => {
       return res.status(500).send("Unable to register user");
     }
     return res.status(201).send("User registered successfully");
+    console.log("done");
   } catch (error) {
     res.status(500).send("Unable to register user");
   }

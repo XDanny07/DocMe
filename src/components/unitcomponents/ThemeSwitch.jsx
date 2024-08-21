@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../styles/unit_styles/themeswitch.css";
 import { setDarkTheme } from "../../redux/reducers/rootSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function ThemeSwitch() {
+  const isDark = useSelector((state) => state.root.isDark);
   const dispatch = useDispatch();
   const handleToggle = () => {
     dispatch(setDarkTheme());
@@ -12,6 +13,7 @@ function ThemeSwitch() {
     <div>
       <label className="theme-switch">
         <input
+          defaultChecked={isDark}
           onClick={handleToggle}
           type="checkbox"
           className="theme-switch__checkbox"

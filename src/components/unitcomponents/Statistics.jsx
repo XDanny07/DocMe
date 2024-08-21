@@ -5,10 +5,10 @@ import { useSelector } from "react-redux";
 export default function Statistics() {
   const isDark = useSelector((state) => state.root.isDark);
   return (
-    <Card>
+    <SCard>
       <div className={`card-container ${isDark ? "dark" : "light"}`}>
-        <div class="card">
-          <div class="child card-1">
+        <div className="card">
+          <div className="child card-1">
             <div>
               <CountUp
                 start={0}
@@ -30,7 +30,7 @@ export default function Statistics() {
               </span>
             </div>
           </div>
-          <div class="child card-2">
+          <div className="child card-2">
             <div>
               <CountUp
                 start={0}
@@ -52,7 +52,7 @@ export default function Statistics() {
               </span>
             </div>
           </div>
-          <div class="child card-3">
+          <div className="child card-3">
             <div className>
               <CountUp
                 start={0}
@@ -76,11 +76,11 @@ export default function Statistics() {
           </div>
         </div>
       </div>
-    </Card>
+    </SCard>
   );
 }
 
-const Card = styled.div`
+const SCard = styled.div`
   .card-container {
     width: 100%;
     display: flex;
