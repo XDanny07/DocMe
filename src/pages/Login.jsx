@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { setUserInfo } from "../redux/reducers/rootSlice";
 import { jwtDecode } from "jwt-decode";
 import fetchData from "../helper/apiCall";
+
 function Login() {
   const [userdetails, setUserDetails] = useState({
     email: "",
@@ -57,8 +58,7 @@ function Login() {
       dispatch(setUserInfo(jwtDecode(data.token).userId));
       getUser(jwtDecode(data.token).userId);
     } catch (err) {
-      //   if (err.response.find(data)) toast.error(err.response.data || "f");
-      console.log(err);
+      err.response.data ? toast.error(err.response.data) : "";
     }
   };
   return (

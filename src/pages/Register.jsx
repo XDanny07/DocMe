@@ -23,7 +23,6 @@ export default function Register() {
       ...formdetails,
       [name]: value,
     });
-    console.log(formdetails);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -87,6 +87,11 @@ nav {
   padding: 0.4rem 0.8rem;
 }
 
+.navbtn-container {
+  width: 156px;
+  display: flex;
+}
+
 .menu-icons {
   display: none;
   z-index: 100;

@@ -11,6 +11,8 @@ import Loader from "./components/unitcomponents/Loader";
 
 const Home = lazy(() => import("./pages/Home"));
 const Doctors = lazy(() => import("./pages/Doctors"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const ApplyDoctor = lazy(() => import("./pages/ApplyDoctor"));
 
 function App() {
   return (
@@ -29,6 +31,22 @@ function App() {
             }
           ></Route>
           <Route path="/doctors" Component={Doctors}></Route>
+          <Route
+            path="/applyfordoctor"
+            element={
+              <Protected>
+                <ApplyDoctor />
+              </Protected>
+            }
+          />
+          <Route
+            path="/dashboard/users"
+            element={
+              <Admin>
+                <Dashboard type={"users"} />
+              </Admin>
+            }
+          />
         </Routes>
       </Suspense>
     </BrowserRouter>
