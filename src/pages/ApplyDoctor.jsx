@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/register.css";
@@ -14,8 +15,8 @@ function ApplyDoctor() {
     fees: "",
   });
   const isDark = useSelector((state) => state.root.isDark);
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
-    console.log("called");
     e.preventDefault();
     try {
       await toast.promise(

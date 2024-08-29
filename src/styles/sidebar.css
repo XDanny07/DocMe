@@ -1,0 +1,54 @@
+.sidebar-container {
+  height: 100%;
+}
+.sidebar-container .input {
+  display: flex;
+
+  flex-direction: column;
+  width: 200px;
+  height: 100%;
+  background-color: #0d1117;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.input .value {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  color: white;
+  display: flex;
+  position: relative;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.input .value:not(:active):hover,
+.input .value:focus {
+  background-color: #21262c;
+}
+
+.input .value:focus,
+.input .value:active {
+  background-color: #1a1f24;
+  outline: none;
+}
+
+.input .value::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  width: 5px;
+  height: 80%;
+  background-color: #2f81f7;
+  border-radius: 5px;
+  opacity: 0;
+}
+
+.input .value:focus::before,
+.input .value:active::before {
+  opacity: 1;
+}

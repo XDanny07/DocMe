@@ -3,7 +3,7 @@ import "../../styles/unit_styles/loader.css";
 function Loader() {
   return (
     <div>
-      <div className="loader fixed top-[50%] left-[50%] z-[999] translate-x-[-50%] translate-y-[-50%]">
+      <div className="loader absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] z-[999] ">
         <div>
           <ul>
             <li>

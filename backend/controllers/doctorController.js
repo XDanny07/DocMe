@@ -43,7 +43,7 @@ const applyfordoctor = async (req, res) => {
       return res.status(400).send("Application already exists");
     }
 
-    const doctor = Doctor({ ...req.body.formDetails, userId: req.locals });
+    const doctor = Doctor({ ...req.body.details, userId: req.locals });
     const result = await doctor.save();
 
     return res.status(201).send("Application submitted successfully");

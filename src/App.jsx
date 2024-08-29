@@ -47,6 +47,30 @@ function App() {
               </Admin>
             }
           />
+          <Route
+            path="/dashboard/doctors"
+            element={
+              <Admin>
+                <Dashboard type={"doctors"} />
+              </Admin>
+            }
+          />
+          <Route
+            path="/dashboard/appointments"
+            element={
+              <Protected>
+                <Dashboard type={"appointments"} />
+              </Protected>
+            }
+          />
+          <Route
+            path="/dashboard/applications"
+            element={
+              <Protected>
+                <Dashboard type={"applications"} />
+              </Protected>
+            }
+          />
         </Routes>
       </Suspense>
     </BrowserRouter>
