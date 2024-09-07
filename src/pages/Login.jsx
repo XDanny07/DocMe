@@ -20,7 +20,10 @@ function Login() {
   const dispatch = useDispatch();
   const inputChange = (e) => {
     const { name, value } = e.target;
-    setUserDetails({ ...userdetails, [name]: value });
+    setUserDetails({
+      ...userdetails,
+      [name]: name == "email" ? value.toLowerCase() : value,
+    });
   };
 
   const getUser = async (id) => {
@@ -58,7 +61,7 @@ function Login() {
       dispatch(setUserInfo(jwtDecode(data.token).userId));
       getUser(jwtDecode(data.token).userId);
     } catch (err) {
-      err.response.data ? toast.error(err.response.data) : "";
+      err.response?.data ? toast.error(err.response.data) : "";
     }
   };
   return (

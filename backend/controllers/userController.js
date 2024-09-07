@@ -88,6 +88,7 @@ const updateprofile = async (req, res) => {
 const deleteuser = async (req, res) => {
   try {
     const result = await User.findByIdAndDelete(req.body.userId);
+    console.log(req.body);
     const removeDoc = await Doctor.findOneAndDelete({
       userId: req.body.userId,
     });

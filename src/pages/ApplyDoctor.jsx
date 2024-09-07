@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/register.css";
 
-axios.defaults.baseURL = "http://localhost:5000/";
+axios.defaults.baseURL = "http://localhost:5000";
 
 function ApplyDoctor() {
   const [details, setDetails] = useState({
@@ -19,7 +19,7 @@ function ApplyDoctor() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await toast.promise(
+      const response = await toast.promise(
         axios.post(
           "/doctor/applyfordoctor",
           {
@@ -33,13 +33,13 @@ function ApplyDoctor() {
         ),
         {
           success: "Application sent successfully",
-          error: "Unable to send application",
           loading: "Sending application...",
         }
       );
 
       navigate("/");
     } catch (error) {
+      toast.error(error.response.data);
       console.log(error);
     }
   };

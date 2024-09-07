@@ -5,13 +5,14 @@ import Loader from "./unitcomponents/Loader";
 // import Empty from "./Empty";
 import fetchData from "../helper/apiCall";
 import "../styles/user.css";
+import { useSelector } from "react-redux";
 
 axios.defaults.baseURL = "http://localhost:5000";
 
 const AdminApplications = () => {
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const isDark = useSelector((state) => state.root.isDark);
   const getAllApp = async (e) => {
     try {
       setLoading(true);
@@ -86,7 +87,7 @@ const AdminApplications = () => {
       {loading ? (
         <Loader />
       ) : (
-        <section className="user-section">
+        <section className={`user-section ${isDark ? "dark" : ""}`}>
           <h3 className="home-sub-heading">All Applications</h3>
           {applications.length > 0 ? (
             <div className="user-container">

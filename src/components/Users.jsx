@@ -5,13 +5,14 @@ import Loader from "./unitcomponents/Loader";
 import "../styles/user.css";
 // import Empty from "./Empty";
 import fetchData from "../helper/apiCall";
+import { useSelector } from "react-redux";
 
 axios.defaults.baseURL = "http://localhost:5000";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const isDark = useSelector((state) => state.root.isDark);
   const getAllUsers = async (e) => {
     try {
       setLoading(true);
@@ -55,8 +56,8 @@ const Users = () => {
       {loading ? (
         <Loader />
       ) : (
-        <section className="user-section">
-          <h3 className="home-sub-heading">All Users</h3>
+        <section className={`user-section ${isDark ? "dark" : ""}`}>
+          <h3 className="home-sub-heading ">All Users</h3>
           {users.length > 0 ? (
             <div className="user-container">
               <table>

@@ -13,6 +13,7 @@ const Home = lazy(() => import("./pages/Home"));
 const Doctors = lazy(() => import("./pages/Doctors"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const ApplyDoctor = lazy(() => import("./pages/ApplyDoctor"));
+const Notifications = lazy(() => import("./pages/Notifications"));
 
 function App() {
   return (
@@ -53,6 +54,14 @@ function App() {
               <Admin>
                 <Dashboard type={"doctors"} />
               </Admin>
+            }
+          />
+          <Route
+            path="/notifications"
+            element={
+              <Protected>
+                <Notifications />
+              </Protected>
             }
           />
           <Route

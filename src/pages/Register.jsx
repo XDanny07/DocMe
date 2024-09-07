@@ -21,7 +21,7 @@ export default function Register() {
     const { name, value } = e.target;
     setFormDetails({
       ...formdetails,
-      [name]: value,
+      [name]: name == "email" ? value.toLowerCase() : value,
     });
   };
   const handleSubmit = async (e) => {

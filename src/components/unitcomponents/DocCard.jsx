@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-function DocCard() {
+import BookAppointment from "../BookAppointment";
+function DocCard({ data }) {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
+
+  const handleModal = () => {
+    if (token === "") {
+      return toast.error("You must log in first");
+    }
+    setModalOpen(true);
+  };
+  console.log(data);
   return (
     <DCard>
       <div class="card">
@@ -11,10 +22,25 @@ function DocCard() {
             alt=""
           />
         </div>
-        <span> Person</span>
-        <p class="job"> Job Title</p>
-        <button> Click</button>
+        <span>{data.userId.firstname + " " + data.userId.lastname}</span>
+        <p class="job">{data?.specialization}</p>
+        <div className="doc-details">
+          <p>
+            <strong>Experience : </strong>
+            {data?.experience} years
+          </p>
+          <p>
+            <strong>Consultation Fee's : </strong>
+            {data?.fees}
+          </p>
+          <p>
+            <strong>Mobile : </strong>
+            {data.userId.mobile || "NA"}
+          </p>
+        </div>
+        <button onClick={handleModal}>Book</button>
       </div>
+      {modalOpen && <BookAppointment setModalOpen={setModalOpen} ele={data} />}
     </DCard>
   );
 }
@@ -30,10 +56,16 @@ const DCard = styled.div`
     border-radius: 15px;
     box-shadow: 1px 5px 60px 0px #100a886b;
     transition: all 0.3s;
+    color: white;
   }
-
+  .doc-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
   .card:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
   .card .card-border-top {
     width: 60%;

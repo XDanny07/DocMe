@@ -4,13 +4,14 @@ import { toast } from "react-toastify";
 import Loader from "../components/unitcomponents/Loader";
 import fetchData from "../helper/apiCall";
 import "../styles/user.css";
+import { useSelector } from "react-redux";
 
 axios.defaults.baseURL = "http://localhost:5000";
 
 const AdminDoctors = () => {
   const [doctors, setDoctors] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const isDark = useSelector((state) => state.root.isDark);
   const getAllDoctors = async (e) => {
     try {
       setLoading(true);
@@ -56,7 +57,7 @@ const AdminDoctors = () => {
       {loading ? (
         <Loader />
       ) : (
-        <section className="user-section">
+        <section className={`user-section ${isDark ? "dark" : ""}`}>
           <h3 className="home-sub-heading">All Doctors</h3>
           {doctors.length > 0 ? (
             <div className="user-container">

@@ -1,0 +1,30 @@
+.notif-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vw;
+  padding: 1% 4%;
+  /* align-items: center; */
+}
+.page-heading {
+  padding: 2rem 0;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  text-align: center;
+}
+.notifications {
+  align-self: center;
+  overflow: auto;
+  border-radius: 0.5rem;
+  color: black;
+}
+
+.disable-btn {
+  cursor: no-drop;
+}
+
+.disable-btn:hover {
+  background-color: rgba(0, 128, 0, 0.528) !important;
+}

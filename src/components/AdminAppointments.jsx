@@ -4,13 +4,14 @@ import { toast } from "react-toastify";
 import Loader from "./unitcomponents/Loader";
 import fetchData from "../helper/apiCall";
 import "../styles/user.css";
+import { useSelector } from "react-redux";
 
 axios.defaults.baseURL = "http://localhost:5000";
 
 const AdminAppointments = () => {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const isDark = useSelector((state) => state.root.isDark);
   const getAllAppoint = async (e) => {
     try {
       setLoading(true);
@@ -58,7 +59,7 @@ const AdminAppointments = () => {
       {loading ? (
         <Loader />
       ) : (
-        <section className="user-section">
+        <section className={`user-section ${isDark ? "dark" : ""}`}>
           <h3 className="home-sub-heading">All Users</h3>
           {appointments.length > 0 ? (
             <div className="user-container">

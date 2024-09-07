@@ -5,7 +5,12 @@ export const rootReducer = createSlice({
   initialState: {
     loading: true,
     userInfo: {},
-    isDark: false,
+    isDark:
+      localStorage.getItem("theme") == null
+        ? false
+        : localStorage.getItem("theme") == "false"
+        ? false
+        : true,
   },
   reducers: {
     setLoading: (state, action) => {
@@ -15,6 +20,8 @@ export const rootReducer = createSlice({
       state.userInfo = action.payload;
     },
     setDarkTheme: (state) => {
+      localStorage.setItem("theme", !state.isDark);
+      console.log(localStorage.getItem("theme"));
       state.isDark = !state.isDark;
     },
   },
