@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import "../styles/notification.css";
 // import Empty from "../components/Empty";
 // import Footer from "../components/Footer";
@@ -35,7 +35,7 @@ const Notifications = () => {
       {loading ? (
         <Loader />
       ) : (
-        <section className={`notif-section ${isDark ? "dark" : ""}`}>
+        <section className={`notif-section ${isDark ? "dark" : "light"}`}>
           <h2 className="page-heading">Your Notifications</h2>
 
           {notifications.length > 0 ? (

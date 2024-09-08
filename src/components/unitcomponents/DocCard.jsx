@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import styled from "styled-components";
 import BookAppointment from "../BookAppointment";
 function DocCard({ data }) {
@@ -7,7 +8,8 @@ function DocCard({ data }) {
 
   const handleModal = () => {
     if (token === "") {
-      return toast.error("You must log in first");
+      toast.error("You must log in first");
+      return;
     }
     setModalOpen(true);
   };

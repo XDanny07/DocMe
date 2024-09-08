@@ -5,7 +5,7 @@ function Loader() {
   const isDark = useSelector((state) => state.root.isDark);
   useEffect(() => {
     if (isDark) {
-      document.body.style.backgroundColor = "#021526";
+      document.body.style.backgroundColor = "#1a1a1a";
     } else {
       document.body.style.backgroundColor = "white";
     }

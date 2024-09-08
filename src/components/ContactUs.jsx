@@ -4,7 +4,7 @@ import "../styles/common.css";
 export default function ContactUs() {
   const isDark = useSelector((state) => state.root.isDark);
   return (
-    <div className={`px-[25%] ${isDark ? "darkbg" : ""}`}>
+    <div className={`px-[25%] ${isDark ? "darkbg" : "lightbg"}`}>
       <section className="px-6 bg-[#FEFFD2] rounded-md">
         <div className="py-8 lg:py-12 max-w-screen-md">
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center">

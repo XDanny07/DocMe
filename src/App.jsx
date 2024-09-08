@@ -6,7 +6,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Loader from "./components/unitcomponents/Loader";
 
-// import { ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -14,11 +14,12 @@ const Doctors = lazy(() => import("./pages/Doctors"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const ApplyDoctor = lazy(() => import("./pages/ApplyDoctor"));
 const Notifications = lazy(() => import("./pages/Notifications"));
+const Appointments = lazy(() => import("./pages/Appointments"));
 
 function App() {
   return (
     <BrowserRouter>
-      {/* <ToastContainer /> */}
+      <ToastContainer position="top-center" />
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" Component={Home}></Route>
@@ -41,6 +42,22 @@ function App() {
             }
           />
           <Route
+            path="/notifications"
+            element={
+              <Protected>
+                <Notifications />
+              </Protected>
+            }
+          />
+          <Route
+            path="/appointments"
+            element={
+              <Protected>
+                <Appointments />
+              </Protected>
+            }
+          />
+          <Route
             path="/dashboard/users"
             element={
               <Admin>
@@ -54,14 +71,6 @@ function App() {
               <Admin>
                 <Dashboard type={"doctors"} />
               </Admin>
-            }
-          />
-          <Route
-            path="/notifications"
-            element={
-              <Protected>
-                <Notifications />
-              </Protected>
             }
           />
           <Route

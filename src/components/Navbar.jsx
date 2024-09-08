@@ -31,7 +31,7 @@ const Navbar = () => {
     "relative text-lg w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center";
 
   return (
-    <header className={isDark ? "dark" : "light"}>
+    <header className={`${isDark ? "dark bg-[#1a1a1a]" : "light"}`}>
       <nav className={iconActive ? "nav-active" : ""}>
         <h2 className="nav-logo">
           <NavLink to={"/"} className="nav-logo-a">

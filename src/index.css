@@ -4,14 +4,18 @@
 
 @layer components {
   .darkbg {
-    background-color: #021526;
+    background-color: #1a1a1a;
   }
-  .light {
+  .lightbg {
     background-color: white;
   }
   .dark {
     color: white;
-    background-color: #021526;
+    background-color: #1a1a1a;
+  }
+  .light {
+    color: black;
+    background-color: white;
   }
 }
 html {
