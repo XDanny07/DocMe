@@ -15,6 +15,7 @@ const Dashboard = lazy(() => import("./pages/Dashboard"));
 const ApplyDoctor = lazy(() => import("./pages/ApplyDoctor"));
 const Notifications = lazy(() => import("./pages/Notifications"));
 const Appointments = lazy(() => import("./pages/Appointments"));
+const Profile = lazy(() => import("./pages/Profile"));
 
 function App() {
   return (
@@ -54,6 +55,14 @@ function App() {
             element={
               <Protected>
                 <Appointments />
+              </Protected>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <Protected>
+                <Profile />
               </Protected>
             }
           />
